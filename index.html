@@ -10,8 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <style>  
-         @keyframes slideFromLeft {
-  0% {
+     0% {
     opacity: 0;
     transform: translateX(-100px);
   }
@@ -20,15 +19,19 @@
     transform: translateX(0);
   }
 }
-h1, h2, h3, h4, h5, h6, p ,img{
-  animation: slideFromLeft 1s ease-out forwards;
-  opacity: 0; 
+h1, h2, h3, h4, h5, h6, p {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.8s ease-out;
 }
-h1 { animation-delay: 0.1s; }
-h2 { animation-delay: 0.2s; }
-h3 { animation-delay: 0.3s; }
-p  { animation-delay: 0.4s; }
-img { animation-delay: 0.1s; }
+.show {
+  animation: slideFromLeft 1s ease-out forwards;
+}
+
+h1.show { animation-delay: 0.1s; }
+h2.show { animation-delay: 0.2s; }
+h3.show { animation-delay: 0.3s; }
+p.show  { animation-delay: 0.4s; }
     p{
   font-family: "Montserrat", sans-serif;
 
@@ -895,7 +898,19 @@ I love solving complex problems, writing elegant code, and continuously learning
 
   <p class="footer-end">Made with ❤️ by <span>Arif Reja</span> | © 2025</p>
 </footer>
+<script>
+  const elements = document.querySelectorAll("h1, h2, h3, h4, h5, h6, p");
 
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.2 }); 
+
+  elements.forEach(el => observer.observe(el));
+</script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
      <script>
     var typed = new Typed('#element', {
@@ -907,3 +922,4 @@ I love solving complex problems, writing elegant code, and continuously learning
 
 
 </html>
+
