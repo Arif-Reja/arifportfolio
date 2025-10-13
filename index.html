@@ -9,7 +9,26 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <style>    
+    <style>  
+         @keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+h1, h2, h3, h4, h5, h6, p ,img{
+  animation: slideFromLeft 1s ease-out forwards;
+  opacity: 0; 
+}
+h1 { animation-delay: 0.1s; }
+h2 { animation-delay: 0.2s; }
+h3 { animation-delay: 0.3s; }
+p  { animation-delay: 0.4s; }
+img { animation-delay: 0.1s; }
     p{
   font-family: "Montserrat", sans-serif;
 
@@ -885,5 +904,6 @@ I love solving complex problems, writing elegant code, and continuously learning
     });
   </script>
 </body>
+
 
 </html>
